@@ -43,6 +43,7 @@ import sys
 import numpy
 import argparse
 import associate
+import math
 
 def align(model,data):
     """Align two trajectories using the method of Horn (closed-form).
@@ -183,9 +184,13 @@ if __name__=="__main__":
         plot_traj(ax,second_stamps,second_xyz_full_aligned.transpose().A,'-',"blue","estimated")
 
         label="difference"
-        print(len(first_xyz_full.transpose().A))
+        num_steps = math.floor(len(first_xyz_full.transpose().A)/20)
+        i = 0
         for (a,b),(x1,y1,z1),(x2,y2,z2) in zip(matches,first_xyz.transpose().A,second_xyz_aligned.transpose().A):
-            ax.plot([x1,x2],[y1,y2],'-',color="red",label=label, alpha=0.1)
+            i+= 1
+            if i == num_steps:
+                ax.plot([x1,x2],[y1,y2],'-',color="red",label=label, alpha=0.1)
+                i = 0
             label=""
             
         ax.legend()
