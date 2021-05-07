@@ -6,7 +6,5 @@ This is just a repo containing the evaluation scripts for SLAM made by the Compu
 Once you get the 3 text files in the format mentioned in the link above/from the simulator repo here: https://github.com/sisaha9/dsc180a-slam-simulator
 
 Just run 
-1. python evaluate_ate.py rtabmap_slam.txt rtabmap_gt.txt --plot ate.png
-2. python evaluate_rpe.py rtabmap_odom.txt rtabmap_gt.txt --plot rpe.png --fixed_delta
-
-Soon a library for better hyperparameter tunign will be released with this as a base
+1. `python evaluate_ate.py rtabmap_slam.txt rtabmap_gt.txt --plot ate.png`
+2. `python evaluate_rpe.py rtabmap_odom.txt rtabmap_gt.txt --plot rpe.png --fixed_delta`
